@@ -121,42 +121,42 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
-  
+
   /* Fix dropdown styling in dark mode */
   select {
     color-scheme: dark light;
   }
-  
+
   select option {
     background-color: var(--background);
     color: var(--foreground);
   }
-  
+
   /* Dark mode specific dropdown fixes */
   .dark select {
     background-color: var(--background);
     color: var(--foreground);
   }
-  
+
   .dark select option {
     background-color: var(--background);
     color: var(--foreground);
   }
-  
+
   /* Webkit specific dropdown fixes */
   select::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   select::-webkit-scrollbar-track {
     background: var(--muted);
   }
-  
+
   select::-webkit-scrollbar-thumb {
     background: var(--muted-foreground);
     border-radius: 4px;
   }
-  
+
   /* Firefox specific fixes */
   @-moz-document url-prefix() {
     select {
