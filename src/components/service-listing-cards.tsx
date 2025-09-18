@@ -1,20 +1,77 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import {
-  Star,
-  MapPin,
-  Phone,
-  Clock,
-  Users,
   ChevronLeft,
   ChevronRight,
-  Filter,
+  Clock,
+  MapPin,
   Search,
+  Star,
 } from "lucide-react";
-import ContactButtons, {
+import Image from "next/image";
+import type React from "react";
+import { useEffect, useState } from "react";
+import {
   CompactContactButtons,
   ContactInfo,
 } from "./contact-buttons";
+
+// Types
+interface FilterObject {
+  gender?: string;
+  location?: string;
+  currency?: string;
+  serviceType?: string;
+  ageRange?: string;
+  experience?: string;
+  priceRange?: [number, number];
+  availability?: string;
+  rating?: number;
+  languages?: string[];
+  certification?: string;
+  responseTime?: string;
+  specializations?: string[];
+  workingHours?: string;
+  verified?: boolean;
+  featured?: boolean;
+}
+
+interface Service {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+  rating: string;
+  reviews: number;
+  price: string;
+  priceRange: [number, number];
+  currency: string;
+  location: string;
+  locationKey: string;
+  phone: string;
+  hours: string;
+  services: string[];
+  badge: string | null;
+  description: string;
+  verified: boolean;
+  experience: string;
+  experienceYears: number;
+  gender: string;
+  ageRange: string;
+  languages: string[];
+  specializations: string[];
+  availability: string;
+  certification: string;
+  responseTime: string;
+  workingHours: string;
+  featured: boolean;
+  serviceType: string;
+  contact: {
+    whatsapp: string | null;
+    telegram: string | null;
+    phone: string;
+    preferredContact: string;
+  };
+}
 
 // Mock database - In real app, this would be API calls
 const generateMockServices = () => {
@@ -238,9 +295,11 @@ const ServiceCard = ({ service }) => {
       <div className="flex">
         {/* Image Section */}
         <div className="w-48 h-40 relative flex-shrink-0">
-          <img
+          <Image
             src={`https://images.unsplash.com/photo-${1540555700478 + (service.id % 20)}?w=400&h=250&fit=crop&auto=format`}
             alt={service.name}
+            width={192}
+            height={160}
             className="w-full h-full object-cover"
           />
           {service.badge && (
@@ -430,7 +489,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 };
 
 interface ServiceListingProps {
-  filters?: any;
+  filters?: FilterObject;
 }
 
 const ServiceListingWithPagination: React.FC<ServiceListingProps> = ({
@@ -455,7 +514,7 @@ const ServiceListingWithPagination: React.FC<ServiceListingProps> = ({
   ];
 
   // Enhanced filtering function
-  const applyFilters = (services: any[], filters: any) => {
+  const applyFilters = (services: Service[], filters: FilterObject) => {
     return services.filter((service) => {
       // Basic filters
       if (filters.gender && service.gender !== filters.gender) return false;
@@ -472,7 +531,7 @@ const ServiceListingWithPagination: React.FC<ServiceListingProps> = ({
       if (filters.experience) {
         const [min, max] = filters.experience
           .split("-")
-          .map((n: string) => (n === "+" ? 100 : parseInt(n)));
+          .map((n: string) => (n === "+" ? 100 : parseInt(n, 10)));
         if (
           service.experienceYears < min ||
           (max !== 100 && service.experienceYears > max)

@@ -1,14 +1,17 @@
 "use client";
 
-import { ModeToggle } from "@/components/ModeToggle";
-import ServiceListingCards from "@/components/service-listing-cards";
-import Navbar from "@/components/navbar";
 import { useState } from "react";
+import { ModeToggle } from "@/components/ModeToggle";
+import Navbar from "@/components/navbar";
+import ServiceListingCards from "@/components/service-listing-cards";
+
+type FilterValue = string | number | boolean | string[];
+type FilterObject = Record<string, FilterValue>;
 
 export default function Home() {
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState<FilterObject>({});
 
-  const handleFiltersChange = (newFilters: any) => {
+  const handleFiltersChange = (newFilters: FilterObject) => {
     // Remove empty values to avoid unnecessary filtering
     const cleanFilters = Object.fromEntries(
       Object.entries(newFilters).filter(([_, value]) => {

@@ -1,23 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
 import {
-  Search,
-  MapPin,
-  DollarSign,
-  Users,
-  Settings,
-  Plus,
-  X,
-  Star,
-  Calendar,
-  Clock,
-  Shield,
   Award,
-  Filter,
-  ChevronDown,
   CheckCircle,
+  ChevronDown,
+  DollarSign,
+  Filter,
+  MapPin,
+  Plus,
+  Search,
+  Settings,
+  Star,
+  Users,
+  X,
 } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
 
 // Types for our filter states
 interface NavbarFilters {
@@ -182,7 +180,7 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
 
   const handleAdvancedFilterChange = (
     key: keyof AdvancedFilters,
-    value: any,
+    value: AdvancedFilters[keyof AdvancedFilters],
   ) => {
     const newAdvancedFilters = { ...advancedFilters, [key]: value };
     setAdvancedFilters(newAdvancedFilters);
@@ -232,13 +230,19 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
     onFiltersChange({ ...resetBasicFilters, ...resetAdvancedFilters });
   };
 
+  interface DropdownSelectProps {
+    options: Array<{ value: string; label: string; symbol?: string }>;
+    value: string;
+    onChange: (value: string) => void;
+    icon: React.ComponentType<{ className?: string }>;
+  }
+
   const DropdownSelect = ({
     options,
     value,
     onChange,
-    placeholder,
     icon: Icon,
-  }: any) => (
+  }: DropdownSelectProps) => (
     <div className="relative">
       <div className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
         <Icon className="w-4 h-4 text-muted-foreground" />
@@ -252,7 +256,7 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
             color: "inherit",
           }}
         >
-          {options.map((option: any) => (
+          {options.map((option) => (
             <option
               key={option.value}
               value={option.value}
@@ -281,7 +285,6 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               options={genderOptions}
               value={filters.gender}
               onChange={(value: string) => handleFilterChange("gender", value)}
-              placeholder="Select Gender"
               icon={Users}
             />
 
@@ -292,7 +295,6 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               onChange={(value: string) =>
                 handleFilterChange("location", value)
               }
-              placeholder="Select Location"
               icon={MapPin}
             />
 
@@ -303,7 +305,6 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               onChange={(value: string) =>
                 handleFilterChange("currency", value)
               }
-              placeholder="Currency"
               icon={DollarSign}
             />
 
@@ -314,7 +315,6 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               onChange={(value: string) =>
                 handleFilterChange("serviceType", value)
               }
-              placeholder="Service Type"
               icon={Settings}
             />
 
@@ -361,10 +361,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               {/* Row 1: Age Range, Experience, Rating */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="age-range" className="block text-sm font-medium text-foreground mb-2">
                     Age Range
                   </label>
                   <select
+                    id="age-range"
                     value={advancedFilters.ageRange}
                     onChange={(e) =>
                       handleAdvancedFilterChange("ageRange", e.target.value)
@@ -392,10 +393,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="experience" className="block text-sm font-medium text-foreground mb-2">
                     Experience
                   </label>
                   <select
+                    id="experience"
                     value={advancedFilters.experience}
                     onChange={(e) =>
                       handleAdvancedFilterChange("experience", e.target.value)
@@ -423,10 +425,10 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label id="rating-label" className="block text-sm font-medium text-foreground mb-2">
                     Minimum Rating
                   </label>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2" role="group" aria-labelledby="rating-label">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
                         key={star}
@@ -444,7 +446,7 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
 
               {/* Row 2: Price Range */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label id="price-range-label" className="block text-sm font-medium text-foreground mb-2">
                   Price Range:{" "}
                   {
                     currencyOptions.find((c) => c.value === filters.currency)
@@ -466,11 +468,12 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                     value={advancedFilters.priceRange[0]}
                     onChange={(e) =>
                       handleAdvancedFilterChange("priceRange", [
-                        parseInt(e.target.value),
+                        parseInt(e.target.value, 10),
                         advancedFilters.priceRange[1],
                       ])
                     }
                     className="flex-1"
+                    aria-labelledby="price-range-label"
                   />
                   <input
                     type="range"
@@ -481,10 +484,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                     onChange={(e) =>
                       handleAdvancedFilterChange("priceRange", [
                         advancedFilters.priceRange[0],
-                        parseInt(e.target.value),
+                        parseInt(e.target.value, 10),
                       ])
                     }
                     className="flex-1"
+                    aria-labelledby="price-range-label"
                   />
                 </div>
               </div>
@@ -492,10 +496,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               {/* Row 3: Availability, Certification */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="availability" className="block text-sm font-medium text-foreground mb-2">
                     Availability
                   </label>
                   <select
+                    id="availability"
                     value={advancedFilters.availability}
                     onChange={(e) =>
                       handleAdvancedFilterChange("availability", e.target.value)
@@ -523,10 +528,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="certification" className="block text-sm font-medium text-foreground mb-2">
                     Certification
                   </label>
                   <select
+                    id="certification"
                     value={advancedFilters.certification}
                     onChange={(e) =>
                       handleAdvancedFilterChange(
@@ -559,10 +565,10 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
 
               {/* Row 4: Languages */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label id="languages-label" className="block text-sm font-medium text-foreground mb-2">
                   Languages
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2" role="group" aria-labelledby="languages-label">
                   {languageOptions.map((language) => (
                     <button
                       key={language}
@@ -581,10 +587,10 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
 
               {/* Row 5: Specializations */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label id="specializations-label" className="block text-sm font-medium text-foreground mb-2">
                   Specializations
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2" role="group" aria-labelledby="specializations-label">
                   {specializationOptions.map((spec) => (
                     <button
                       key={spec}
@@ -604,10 +610,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
               {/* Row 6: Response Time, Working Hours */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="response-time" className="block text-sm font-medium text-foreground mb-2">
                     Response Time
                   </label>
                   <select
+                    id="response-time"
                     value={advancedFilters.responseTime}
                     onChange={(e) =>
                       handleAdvancedFilterChange("responseTime", e.target.value)
@@ -668,10 +675,11 @@ const Navbar: React.FC<NavbarProps> = ({ onFiltersChange }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="working-hours" className="block text-sm font-medium text-foreground mb-2">
                     Working Hours
                   </label>
                   <select
+                    id="working-hours"
                     value={advancedFilters.workingHours}
                     onChange={(e) =>
                       handleAdvancedFilterChange("workingHours", e.target.value)

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { MessageCircle, Send, Phone } from "lucide-react";
+import { MessageCircle, Phone, Send } from "lucide-react";
+import type React from "react";
 
 interface ContactInfo {
   whatsapp?: string | null;
@@ -73,6 +73,7 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({
     return (
       <div className={`flex gap-2 ${className}`}>
         <button
+          type="button"
           onClick={handlePhoneClick}
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
           title="Call Now"
@@ -90,6 +91,7 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({
       {/* WhatsApp Button */}
       {service.contact.whatsapp && (
         <button
+          type="button"
           onClick={handleWhatsAppClick}
           className="flex items-center gap-2 px-3 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-colors"
           title="Contact via WhatsApp"
@@ -102,6 +104,7 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({
       {/* Telegram Button */}
       {service.contact.telegram && (
         <button
+          type="button"
           onClick={handleTelegramClick}
           className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors"
           title="Contact via Telegram"
@@ -113,6 +116,7 @@ const ContactButtons: React.FC<ContactButtonsProps> = ({
 
       {/* Phone Button (Always available as fallback) */}
       <button
+        type="button"
         onClick={handlePhoneClick}
         className="p-2 border border-border rounded-lg hover:bg-muted transition-colors"
         title={`Call ${service.contact.phone}`}
@@ -155,6 +159,7 @@ export const CompactContactButtons: React.FC<ContactButtonsProps> = ({
       {/* Show preferred contact first */}
       {preferredContact === "whatsapp" && service.contact.whatsapp && (
         <button
+          type="button"
           onClick={handleWhatsAppClick}
           className="p-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
           title="WhatsApp"
@@ -165,6 +170,7 @@ export const CompactContactButtons: React.FC<ContactButtonsProps> = ({
 
       {preferredContact === "telegram" && service.contact.telegram && (
         <button
+          type="button"
           onClick={handleTelegramClick}
           className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           title="Telegram"
@@ -176,6 +182,7 @@ export const CompactContactButtons: React.FC<ContactButtonsProps> = ({
       {/* Show secondary contact if available */}
       {preferredContact === "whatsapp" && service.contact.telegram && (
         <button
+          type="button"
           onClick={handleTelegramClick}
           className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-600 transition-colors"
           title="Telegram"
@@ -186,6 +193,7 @@ export const CompactContactButtons: React.FC<ContactButtonsProps> = ({
 
       {preferredContact === "telegram" && service.contact.whatsapp && (
         <button
+          type="button"
           onClick={handleWhatsAppClick}
           className="p-2 bg-green-600/80 text-white rounded-lg hover:bg-green-700 transition-colors"
           title="WhatsApp"
@@ -196,6 +204,7 @@ export const CompactContactButtons: React.FC<ContactButtonsProps> = ({
 
       {/* Phone button (always available) */}
       <button
+        type="button"
         onClick={handlePhoneClick}
         className="p-2 border border-border rounded-lg hover:bg-muted transition-colors"
         title="Call"
