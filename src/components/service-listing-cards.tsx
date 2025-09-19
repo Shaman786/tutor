@@ -80,8 +80,8 @@ interface Service {
 }
 
 // Function to get appropriate images for different service categories
-const getServiceImage = (category: string, id: number) => {
-  const imageCollections = {
+const getServiceImage = (category: string, id: number): string => {
+  const imageCollections: Record<string, string[]> = {
     'Spa & Wellness': [
       '1544717302-de2866faf9c0', // spa stones
       '1571019613-76d5bbcbec08', // massage therapy  
@@ -153,7 +153,7 @@ const generateMockServices = () => {
     "Ameerpet",
     "Kukatpally",
   ];
-  const serviceTypes = {
+  const serviceTypes: Record<string, string[]> = {
     "Spa & Wellness": [
       "Full Body Massage",
       "Aromatherapy",
@@ -227,13 +227,13 @@ const generateMockServices = () => {
   ];
 
   // Generate realistic WhatsApp numbers (Indian format)
-  const generateWhatsAppNumber = (phone) => {
+  const generateWhatsAppNumber = (phone: string): string => {
     // Convert +91 XXXXXXXXXX to WhatsApp format
     return phone.replace("+91 ", "91").replace(/\s+/g, "");
   };
 
   // Generate realistic Telegram usernames
-  const generateTelegramUsername = (serviceName, id) => {
+  const generateTelegramUsername = (serviceName: string, id: number): string => {
     const cleanName = serviceName.toLowerCase().replace(/\s+/g, "");
     const suffixes = ["service", "care", "center", "pro", "expert", "official"];
     const suffix = suffixes[id % suffixes.length];
@@ -272,7 +272,7 @@ const generateMockServices = () => {
       rating: (Math.random() * 2 + 3).toFixed(1),
       reviews: Math.floor(Math.random() * 200) + 10,
       price: `${currency.symbol}${basePrice} - ${currency.symbol}${maxPrice}`,
-      priceRange: [basePrice, maxPrice],
+      priceRange: [basePrice, maxPrice] as [number, number],
       currency: currency.code,
       location: `${location}, Hyderabad`,
       locationKey: location.toLowerCase().replace(/\s+/g, "-"),
@@ -334,8 +334,8 @@ const generateMockServices = () => {
   return services;
 };
 
-const ServiceCard = ({ service }) => {
-  const getBadgeColor = (badge) => {
+const ServiceCard = ({ service }: { service: Service }) => {
+  const getBadgeColor = (badge: string): string => {
     switch (badge) {
       case "Premium":
         return "bg-purple-100 text-purple-800 border-purple-200";
@@ -449,7 +449,7 @@ const ServiceCard = ({ service }) => {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < Math.floor(service.rating) ? "text-yellow-400 fill-current" : "text-gray-300 dark:text-gray-600"}`}
+                    className={`w-3 h-3 ${i < Math.floor(parseFloat(service.rating)) ? "text-yellow-400 fill-current" : "text-gray-300 dark:text-gray-600"}`}
                   />
                 ))}
               </div>
@@ -471,8 +471,14 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const getPageNumbers = () => {
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+  const getPageNumbers = (): (number | string)[] => {
     const pages = [];
     const maxVisible = 5;
 
@@ -554,7 +560,7 @@ const ServiceListingWithPagination: React.FC<ServiceListingProps> = ({
   filters = {},
 }) => {
   const [allServices] = useState(() => generateMockServices()); // Mock database
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -701,17 +707,17 @@ const ServiceListingWithPagination: React.FC<ServiceListingProps> = ({
     setCurrentPage(1);
   }, [filters]);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     setCurrentPage(1);
   };
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
   };
