@@ -1,0 +1,34 @@
+=== GITHUB DEPLOYMENT COMMANDS ===
+
+1. After creating your GitHub repository, run these commands:
+
+# Add your GitHub repository (replace YOUR_USERNAME with your actual GitHub username)
+git remote add origin https://github.com/YOUR_USERNAME/maid-services-website.git
+
+# Push to GitHub
+git push -u origin main
+
+2. If you get authentication errors, you might need to:
+   - Use GitHub Desktop app instead
+   - Set up a Personal Access Token
+   - Or use SSH keys
+
+=== VERCEL DEPLOYMENT STEPS ===
+
+After GitHub upload is complete:
+
+1. Go to https://vercel.com
+2. Sign up/Login with your GitHub account  
+3. Click "New Project"
+4. Import your "maid-services-website" repository
+5. Vercel will auto-detect Vite settings
+6. Click "Deploy"
+7. Your site will be live in ~30 seconds!
+
+=== YOUR PROJECT IS READY ===
+✅ Vite project configured
+✅ Professional maid services website
+✅ Mobile responsive design
+✅ Contact form with validation
+✅ All files committed to Git
+✅ Ready for deployment!
