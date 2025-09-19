@@ -5,13 +5,35 @@ import { ModeToggle } from "@/components/ModeToggle";
 import Navbar from "@/components/navbar";
 import ServiceListingCards from "@/components/service-listing-cards";
 
-type FilterValue = string | number | boolean | string[];
-type FilterObject = Record<string, FilterValue>;
+// Types matching navbar component
+interface NavbarFilters {
+  gender: string;
+  location: string;
+  currency: string;
+  serviceType: string;
+}
+
+interface AdvancedFilters {
+  ageRange: string;
+  experience: string;
+  priceRange: [number, number];
+  availability: string;
+  rating: number;
+  languages: string[];
+  certification: string;
+  responseTime: string;
+  specializations: string[];
+  workingHours: string;
+  verified: boolean;
+  featured: boolean;
+}
+
+type AllFilters = NavbarFilters & AdvancedFilters;
 
 export default function Home() {
-  const [filters, setFilters] = useState<FilterObject>({});
+  const [filters, setFilters] = useState<Partial<AllFilters>>({});
 
-  const handleFiltersChange = (newFilters: FilterObject) => {
+  const handleFiltersChange = (newFilters: AllFilters) => {
     // Remove empty values to avoid unnecessary filtering
     const cleanFilters = Object.fromEntries(
       Object.entries(newFilters).filter(([_, value]) => {
@@ -20,7 +42,7 @@ export default function Home() {
         if (typeof value === "number") return value > 0;
         return value !== "" && value !== null && value !== undefined;
       }),
-    );
+    ) as Partial<AllFilters>;
     setFilters(cleanFilters);
   };
 

@@ -15,25 +15,31 @@ import {
   ContactInfo,
 } from "./contact-buttons";
 
-// Types
-interface FilterObject {
-  gender?: string;
-  location?: string;
-  currency?: string;
-  serviceType?: string;
-  ageRange?: string;
-  experience?: string;
-  priceRange?: [number, number];
-  availability?: string;
-  rating?: number;
-  languages?: string[];
-  certification?: string;
-  responseTime?: string;
-  specializations?: string[];
-  workingHours?: string;
-  verified?: boolean;
-  featured?: boolean;
+// Types matching the navbar component
+interface NavbarFilters {
+  gender: string;
+  location: string;
+  currency: string;
+  serviceType: string;
 }
+
+interface AdvancedFilters {
+  ageRange: string;
+  experience: string;
+  priceRange: [number, number];
+  availability: string;
+  rating: number;
+  languages: string[];
+  certification: string;
+  responseTime: string;
+  specializations: string[];
+  workingHours: string;
+  verified: boolean;
+  featured: boolean;
+}
+
+type AllFilters = NavbarFilters & AdvancedFilters;
+type FilterObject = Partial<AllFilters>;
 
 interface Service {
   id: number;
@@ -72,6 +78,58 @@ interface Service {
     preferredContact: string;
   };
 }
+
+// Function to get appropriate images for different service categories
+const getServiceImage = (category: string, id: number) => {
+  const imageCollections = {
+    'Spa & Wellness': [
+      '1544717302-de2866faf9c0', // spa stones
+      '1571019613-76d5bbcbec08', // massage therapy  
+      '1544717302-de2866faf9c0', // wellness
+      '1552664730-128da03e540d', // spa treatment
+      '1512290923-74e44c7fa4db'  // relaxation
+    ],
+    'Beauty & Salon': [
+      '1516975080664-ed2fc6a32937', // hair salon
+      '1522337360788-8b13dee7a37e', // beauty treatment
+      '1560472354-b33ff0c44a43', // makeup
+      '1487412912431-97caeca62d15', // salon interior
+      '1522336284037-65bfca5dec78'  // beauty products
+    ],
+    'Fitness & Training': [
+      '1571019614716-cf2f1555a1eb', // gym equipment
+      '1538805060514-7ed3ec34540d', // fitness training
+      '1571019613454-1cb2f99b2d8b', // yoga
+      '1544947950-fa07a98b237c', // workout
+      '1517963628607-235ccdd5476c'  // fitness class
+    ],
+    'Healthcare': [
+      '1559757148-5c350d0d3c56', // medical equipment
+      '1582750433449-648ed127bb54', // healthcare
+      '1576091160550-2173dba999ef', // medical consultation
+      '1551601651-2a8555f1a136', // clinic
+      '1559757174-f9867a7aaca3'  // medical care
+    ],
+    'Massage Therapy': [
+      '1544718625-f6fd6ad77e8d', // massage
+      '1571019613876-8cc21ac467d2', // massage therapy
+      '1540555700478-2b30c3c4a0b1', // therapeutic massage
+      '1571019613999-68d77ac90470', // spa massage
+      '1544718625-b7b4b50f5c79'  // relaxation massage
+    ],
+    'Physiotherapy': [
+      '1571019614711-449f85d5cac1', // physiotherapy
+      '1594824735304-bb0b0bb5bc06', // rehabilitation
+      '1571019613454-1cb2f99b2d8b', // physical therapy
+      '1544947950-fa07a98b237c', // recovery
+      '1517963628607-235ccdd5476c'  // therapy session
+    ]
+  };
+
+  const categoryImages = imageCollections[category] || imageCollections['Spa & Wellness'];
+  const imageId = categoryImages[id % categoryImages.length];
+  return `https://images.unsplash.com/photo-${imageId}?w=400&h=250&fit=crop&auto=format`;
+};
 
 // Mock database - In real app, this would be API calls
 const generateMockServices = () => {
@@ -210,7 +268,7 @@ const generateMockServices = () => {
       id: i,
       name: serviceName,
       category: category,
-      image: `https://images.unsplash.com/photo-${1540555700478 + i}?w=400&h=250&fit=crop&auto=format`,
+      image: getServiceImage(category, i),
       rating: (Math.random() * 2 + 3).toFixed(1),
       reviews: Math.floor(Math.random() * 200) + 10,
       price: `${currency.symbol}${basePrice} - ${currency.symbol}${maxPrice}`,
@@ -296,7 +354,7 @@ const ServiceCard = ({ service }) => {
         {/* Image Section */}
         <div className="w-48 h-40 relative flex-shrink-0">
           <Image
-            src={`https://images.unsplash.com/photo-${1540555700478 + (service.id % 20)}?w=400&h=250&fit=crop&auto=format`}
+            src={service.image}
             alt={service.name}
             width={192}
             height={160}
