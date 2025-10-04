@@ -7,9 +7,9 @@ import { galleryImages, getImagesByCategory } from "@/data/gallery"
 import { Phone, MessageCircle, Star, Users, Heart, Crown, Sparkles, Shield } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: 'Premium Escort Services in Hyderabad | VIP Call Girls & High Profile Models',
-  description: 'Discover our exclusive escort services in Hyderabad. VIP call girls, independent models, housewives, college girls, air hostesses. 24/7 available. Safe & discreet service.',
-  keywords: 'hyderabad escort service, vip call girls, independent models, premium escorts, high profile escorts, hyderabad escorts',
+  title: 'Services - hyderabadescort Premium Escort Services | VIP Call Girls & High Profile Models',
+  description: 'Discover hyderabadescort exclusive escort services in Hyderabad. Bold, edgy, and irresistibly sexy women. VIP call girls, independent models, housewives, college girls. 24/7 available.',
+  keywords: 'hyderabadescort, hyderabad escort service, vip call girls, independent models, premium escorts, high profile escorts, hyderabad escorts',
 }
 
 export default function ServicesPage() {
@@ -111,71 +111,107 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Service Types */}
+      {/* TYPES OF MODELS */}
       <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Types of Models Available</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">TYPES OF MODELS</h2>
+          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 mb-12">
+            <p className="mb-6">
+              Our high-profile escort service in Hyderabad has different types of models who are handpicked and know how to make you land in joy and heaven, forgetting everything.
+            </p>
+            <p className="mb-6">
+              Our special category of models includes housewives, air hostesses, and college girls who are in high demand in escort services.
+            </p>
+            <p className="mb-6">
+              Men who like mature women must stop at our escort service, as it is the destination of your heart's desire.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-pink-600 flex items-center">
                   <Users className="mr-2 h-5 w-5" />
                   College Girls
                 </CardTitle>
-                <CardDescription>Young, energetic and jovial companions</CardDescription>
+                <CardDescription>Jovial and high-profile students</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">Our college girls are carefully selected independent women who are high-profile in their colleges. They bring youthful energy and will make you feel like you're with your college girlfriend.</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Jovial and attractive personalities</li>
-                  <li>• Fresh and energetic companions</li>
-                  <li>• Perfect for casual meetings</li>
-                </ul>
+                <p className="mb-4">College girls who are jovial will attract anyone, and our high-profile escort service in Hyderabad carefully picked up independent girls who are into high profiles in colleges and are working with us to enjoy giving company to clients and will make them feel relaxed like a girlfriend in college.</p>
               </CardContent>
             </Card>
             
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-purple-600 flex items-center">
-                  <Heart className="mr-2 h-5 w-5" />
-                  Housewives (MILFs)
+                  <Crown className="mr-2 h-5 w-5" />
+                  Air Hostesses
                 </CardTitle>
-                <CardDescription>Experienced and mature companions</CardDescription>
+                <CardDescription>Professional aviation models</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">Our selection of housewives are experienced women with curvy figures who transform into hot and sexy companions. They know exactly how to fulfill your desires about mature women.</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Experienced and skilled</li>
-                  <li>• Perfect curvy figures</li>
-                  <li>• Expert in companionship</li>
-                </ul>
+                <p className="mb-4">Air hostesses who are models are our specialty. They not only spend time with you but also know the technique of teasing and make you go crazy for them, as we trained them by spending a lot of money to make the clients happy.</p>
               </CardContent>
             </Card>
             
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="text-pink-600 flex items-center">
-                  <Crown className="mr-2 h-5 w-5" />
-                  Air Hostesses
+                  <Heart className="mr-2 h-5 w-5" />
+                  Housewives (MILFs)
                 </CardTitle>
-                <CardDescription>Professional models with aviation background</CardDescription>
+                <CardDescription>Experienced mature women</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">Our air hostess models are specially trained professionals who bring elegance and sophistication. They know advanced techniques and will make you go crazy for them.</p>
-                <ul className="space-y-1 text-sm">
-                  <li>• Professional and elegant</li>
-                  <li>• Specially trained companions</li>
-                  <li>• International standards</li>
-                </ul>
+                <p className="mb-4">Our selection of housewives is the best in escort services, as we selected the most experienced women who have the best curvy figures and will make you tempted to the maximum, as their touch is enough to ignite fire in the body.</p>
               </CardContent>
             </Card>
+          </div>
+          
+          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 mb-12">
+            <p className="mb-6">
+              Housewives' demand will be more, and our Hyderabad escort service is the only escort that handpicked the correct traditional housewives who transform themselves into hot and sexy wild modern women in bed that you cannot imagine, as we train them perfectly how to go deep inside your heart and quench your kinky thoughts about cheating milfs.
+            </p>
+            <p className="mb-6">
+              They are the perfect MILFs who want men's attention every second and seduce you to the maximum, which will make you a repeated client for our escort service.
+            </p>
+            <p className="mb-6">
+              Our Hyderabad Escort Service also has the best Russian models, who are very jovial and bold and will quench your thirst for meeting a foreigner, and you can take their services from our Escort Service in Hyderabad itself.
+            </p>
+            <p className="mb-6">
+              Our high-profile escort service in Hyderabad had a wide range of models who are very bold and brave to do everything that will make you relaxed with their sensual moves in dance and massage and arouse you to make you enjoy the company.
+            </p>
+            <p className="mb-6">
+              We had VIP and Premium for the customers who are willing to pay a high price for dating, as they are from a high class and are rare in Hyderabad Escort Service history.
+            </p>
+            <p className="mb-6">
+              We carefully picked every high-class model and became a brand name for Hyderabad city as the best escort service that gives satisfaction to clients by knowing their inner desires.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Our Service */}
+      {/* WHY OUR HYDERABAD ESCORT SERVICE */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">WHY OUR HYDERABAD ESCORT SERVICE</h2>
+          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 mb-16">
+            <p className="mb-6">
+              Our high-profile escort service in Hyderabad had the best girls from various countries who know how to handle the best moments by not only giving time to give company to you but also making you feel relaxed with various massages that are very important to stimulate sexual hormones.
+            </p>
+            <p className="mb-6">
+              We give priority to customer satisfaction over anything else, and our high-profile girls are very jovial and can mingle with anyone; that is the specialty of our escort service in Hyderabad.
+            </p>
+            <p className="mb-6">
+              We value time and will arrange a meeting with the girls as per the scheduled time without any delay.
+            </p>
+            <p className="mb-6">
+              Our Hyderabad Escort Services is a genuine service that values customers and their beliefs.
+            </p>
+            <p className="mb-6 font-semibold">
+              We don't charge anything in advance, and only at the time of delivery can customers pay the money that will be disclosed in the interaction.
+            </p>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Our Service?</h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
@@ -221,6 +257,45 @@ export default function ServicesPage() {
                 Our escort service is not area restricted and covers the entire Hyderabad region.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SUPPORT Section */}
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">SUPPORT</h2>
+          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 mb-12">
+            <p className="mb-6">
+              Our Hyderabad escort service will provide support to every customer from the beginning of interaction till the ending, and you have the option to select a girl of your choice for your company.
+            </p>
+            <p className="mb-6">
+              We expect the same from customers when dealing with our models and respect the privacy along with dealing smoothly.
+            </p>
+            <p className="mb-6">
+              Our high-profile independent women are the best asset to our escort service, as they are working-class women who want to enjoy some time by giving company to the client.
+            </p>
+            <p className="mb-6">
+              So, we expect the same respect from the customer to the models, and enjoy your thrilling experience that is waiting for you in Hyderabad.
+            </p>
+            <p className="mb-6">
+              We deliver the model safely to the place where the client wants to meet, and we pick up the model again after enjoying precious moments.
+            </p>
+            <p className="mb-6">
+              Our escort service in Hyderabad respects the client's happiness, and we work to the maximum to provide it in every possible way.
+            </p>
+            <p className="mb-6">
+              Our escort service will provide the services in Banjara Hills, Kondapur, Gachibowli, Madhapur, and Hitech City, which are completely occupied by the IT sector, where the demand is greater.
+            </p>
+            <p className="mb-6">
+              Our escort service in Hyderabad specializes in providing services in every area of Hyderabad and is not area restricted.
+            </p>
+            <p className="mb-6">
+              Stop once, and take our service to make yourself relaxed; that will make you forget stress in this competitive world.
+            </p>
+            <p className="mb-6">
+              We are proud to say that our escort service in Hyderabad is the best destination for making everyone enjoy the special moments by providing the best service in the form of models who are well trained and the most attractive on earth.
+            </p>
           </div>
         </div>
       </section>

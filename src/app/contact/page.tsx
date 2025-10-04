@@ -15,9 +15,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Premium Hyderabad Escort Service | 24/7 Available',
-  description: 'Contact our premium escort service in Hyderabad. Available 24/7 via phone and WhatsApp. Quick response, complete discretion, and professional booking service.',
-  keywords: 'contact hyderabad escorts, book escort hyderabad, escort service phone number, whatsapp escort booking, hyderabad call girls contact',
+  title: 'Contact Us - Hscort Premium Escort Services | 24/7 Available',
+  description: 'Contact hscort for premium escort services in Hyderabad. Available 24/7 via phone and WhatsApp. Quick response, complete discretion, and professional booking service.',
+  keywords: 'contact hscort, book escort hyderabad, escort service phone number, whatsapp escort booking, hyderabad call girls contact',
 }
 
 export default function ContactPage() {
@@ -36,7 +36,7 @@ export default function ContactPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-pink-600 hover:bg-pink-700 text-white">
               <Phone className="mr-2 h-5 w-5" />
-              Call Now: +91 XXXXX XXXXX
+              Call Now: +91 9876543210
             </Button>
             <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
               <MessageCircle className="mr-2 h-5 w-5" />

@@ -18,9 +18,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: 'About Us - Premium Hyderabad Escort Service | Professional & Discreet',
-  description: 'Learn about our premium escort service in Hyderabad. We provide VIP companionship with handpicked models, complete discretion, and 24/7 availability across all areas.',
-  keywords: 'about hyderabad escorts, premium escort service, vip companionship, professional escorts, hyderabad escort agency',
+  title: 'About Us - hyderabadescort Premium Escort Services | Professional & Discreet',
+  description: 'Learn about hyderabadescort premium escort services in Hyderabad. Bold, edgy, and irresistibly sexy women for unforgettable moments. VIP companionship with complete discretion.',
+  keywords: 'about hyderabadescort, hyderabad escorts, premium escort service, vip companionship, professional escorts, hyderabad escort agency',
 }
 
 export default function AboutPage() {
@@ -32,45 +32,56 @@ export default function AboutPage() {
       <section className="relative py-16 px-4 text-center bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-            About Our Premium Service
+            About hyderabadescort
           </h1>
           <p className="text-xl mb-8 text-gray-700 dark:text-gray-300 max-w-4xl mx-auto">
-            We are Hyderabad's most trusted and professional escort service, dedicated to providing 
-            exceptional companionship experiences with complete discretion and satisfaction.
+            We are Hyderabad's most trusted escort service, providing bold, edgy, and irresistibly sexy women 
+            for those unforgettable moments of passion and confidence. Complete discretion guaranteed.
           </p>
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* ABOUT US Content */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
-              <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
-                Our Hyderabad Escort Service knows the importance of companionship, and we will satisfy your desires 
-                with carefully picked and trained models who have defined a new way of relaxation in Hyderabad's escort service.
-              </p>
-              <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
-                We believe that client satisfaction is more important to us than anything, and we categorize our services 
-                based on client needs and inner desires that cannot be expressed openly.
-              </p>
-              <p className="text-lg mb-6 text-gray-700 dark:text-gray-300">
-                We do more than provide companionship; we aim for clients to fully relax and feel that our elite escorts 
-                are devoted to their complete satisfaction and enjoyment.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {featuredImages.slice(0, 4).map((image, index) => (
-                <div key={index} className="aspect-square relative rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">ABOUT US</h2>
+          <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300">
+            <p className="mb-6">
+              Our Hyderabad Escort Service knows the importance of dating, and we will satisfy your sexual horniness, which is important in making yourself relaxed, and carefully picked up and trained girls who have defined a new way of relaxation in Hyderabad's escort service.
+            </p>
+            <p className="mb-6">
+              We believe that the client's satisfaction is more important to us than anything, and we divide the classes based on the client's needs and inner heart's desires that cannot be expressed.
+            </p>
+            <p className="mb-6">
+              We do more than provide a dating service; we aim for clients to fully relax and feel that our elite escorts are devoted to their enjoyment.
+            </p>
+            <p className="mb-6">
+              Some desire to see girls in shorts, skirts, sarees, and modern dresses, and our girls who have the best physique will tempt the client to the maximum by showing their body inch by inch and teasing to the maximum level to show that the girls are amazing and that man desires every second to see their physique.
+            </p>
+            <p className="mb-6">
+              Our handpicked high-profile and VIP girls are the best in Hyderabad escort services, as they are the most beautiful and know how to make the clients land in heaven with their body moves only.
+            </p>
+            <p className="mb-6">
+              Our escort service in Hyderabad has a high reputation, as we understand what our clients want. We have different models who will go beyond your expectations, as they are high-profile independent women who know how to handle sex hormones in the client's body correctly.
+            </p>
+            <p className="mb-6">
+              Hyderabad became a hub for important businesspersons, and to relieve your business tensions and make you land in heaven, our high-profile escort service is always ready to satisfy your kinky thoughts in the bedroom.
+            </p>
+            <p className="mb-6">
+              Our escort services' main motive is to provide beautiful physique girls who are hygienic and talented in teasing the clients.
+            </p>
+            <p className="mb-6">
+              Every customer will have expectations, and we will cross those expectations with our models who know the importance of sexual hormones that will make men crave them again and again.
+            </p>
+            <p className="mb-6">
+              Our escort service in Hyderabad is known for its punctuality and attractive girls who are high-class and enjoy spending time with the clients for some time.
+            </p>
+            <p className="mb-6">
+              Our Hyderabad high-profile escort will always respect the client's confidentiality and privacy.
+            </p>
+            <p className="mb-6 font-semibold">
+              Strict action will be taken as per the company's policy.
+            </p>
           </div>
         </div>
       </section>

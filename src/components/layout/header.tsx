@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <Heart className="h-8 w-8 text-pink-600" />
             <span className="text-xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-              Premium Escorts
+              hyderabadescort
             </span>
           </Link>
 

@@ -10,10 +10,10 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Heart className="h-8 w-8 text-pink-600" />
-              <span className="text-xl font-bold">Premium Escorts</span>
+              <span className="text-xl font-bold">hyderabadescort</span>
             </div>
             <p className="text-gray-400">
-              Premium escort service in Hyderabad providing VIP companionship with complete discretion and professionalism.
+              Bold, edgy, and irresistibly sexy women for those unforgettable moments of passion and confidence. Premium escort services in Hyderabad.
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-pink-600" />
-                <span className="text-gray-400">+91 XXXXX XXXXX</span>
+                <span className="text-gray-400">+91 9876543210</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MessageCircle className="h-4 w-4 text-green-600" />
@@ -99,7 +99,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Premium Hyderabad Escort Service. All rights reserved.
+              © {new Date().getFullYear()} hyderabadescort. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm">
               Professional • Discreet • Available 24/7

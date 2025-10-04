@@ -18,13 +18,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Premium Hyderabad Escort Service',
-    default: 'Premium Hyderabad Escort Service | VIP Call Girls & High Profile Models',
+    template: '%s | hyderabadescort - Premium Escort Services',
+    default: 'hyderabadescort - Premium Escort Services | VIP Call Girls & High Profile Models Hyderabad',
   },
-  description: 'Premium escort service in Hyderabad offering VIP call girls, independent models, and high-profile companions. 24/7 available, safe, discreet, and professional service across all areas.',
+  description: 'hyderabadescort offers premium escort services in Hyderabad with VIP call girls, independent models, and high-profile companions. Bold, edgy, and irresistibly sexy women for unforgettable moments. 24/7 available.',
   keywords: [
+    'hyderabadescort',
     'hyderabad escort service',
-    'vip call girls hyderabad',
+    'vip call girls hyderabad', 
     'high profile escorts',
     'independent models hyderabad',
     'premium escort service',
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     'madhapur call girls',
     'hitech city escorts'
   ],
-  authors: [{ name: 'Premium Hyderabad Escort Service' }],
-  creator: 'Premium Hyderabad Escort Service',
-  publisher: 'Premium Hyderabad Escort Service',
+  authors: [{ name: 'hyderabadescort - Premium Escort Services' }],
+  creator: 'hyderabadescort - Premium Escort Services',
+  publisher: 'hyderabadescort - Premium Escort Services',
   formatDetection: {
     email: false,
     address: false,
@@ -50,14 +51,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://hyderabadescort.vip',
-    title: 'Premium Hyderabad Escort Service | VIP Call Girls & High Profile Models',
-    description: 'Premium escort service in Hyderabad offering VIP call girls, independent models, and high-profile companions. Available 24/7.',
-    siteName: 'Premium Hyderabad Escort Service',
+    title: 'hyderabadescort - Premium Escort Services | VIP Call Girls & High Profile Models Hyderabad',
+    description: 'hyderabadescort offers premium escort services in Hyderabad. Bold, edgy, and irresistibly sexy women for unforgettable moments of passion and confidence.',
+    siteName: 'hyderabadescort - Premium Escort Services',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Premium Hyderabad Escort Service',
-    description: 'Premium escort service in Hyderabad offering VIP call girls and high-profile companions.',
+    title: 'hyderabadescort - Premium Escort Services',
+    description: 'Bold, edgy, and irresistibly sexy women for unforgettable moments. Premium escort services in Hyderabad.',
   },
   robots: {
     index: true,
@@ -83,6 +84,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme') || 'dark';
+                  if (theme === 'system') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.classList.add(theme);
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
@@ -91,10 +109,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Premium Hyderabad Escort Service",
-              "description": "Premium escort service in Hyderabad offering VIP call girls, independent models, and high-profile companions.",
+              "name": "hyderabadescort - Premium Escort Services",
+              "description": "hyderabadescort offers premium escort services in Hyderabad. Bold, edgy, and irresistibly sexy women for unforgettable moments of passion and confidence.",
               "url": "https://hyderabadescort.vip",
-              "telephone": "+91-XXXXX-XXXXX",
+              "telephone": "+91-9876543210",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Hyderabad",
@@ -123,12 +141,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute={"class"}
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">
